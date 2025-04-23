@@ -29,13 +29,15 @@ public ArrayList<MemberInfo> removeMembers(int year)
     ArrayList<MemberInfo> goodBoys = new ArrayList<MemberInfo>();
     for(int i = 0; i < memberList.size(); i ++)
     {
-        if(memberList.get(i).inGoodStanding() && (memberList.get(i).getGradYear() < year)) goodBoys.add(memberList.get(i));
-        if((memberList.get(i).getGradYear() < year)) 
+    
+        if((memberList.get(i).getGradYear() <= year)) 
         {
+            if((memberList.get(i)).inGoodStanding()) goodBoys.add(memberList.get(i));
             memberList.remove(i);
             i--;
         }
     }
+    
     return goodBoys;
 }
 
